@@ -27,7 +27,7 @@ Binaries and sources for [india](https://github.com/faosorios/india) are availab
 
 ## Installation instructions
 
-To install [fastmatrix](https://github.com/faosorios/india) from its [GitHub repository](https://github.com/faosorios/india). First install the [devtools](https://devtools.r-lib.org/) package.
+To install [india](https://github.com/faosorios/india) from its [GitHub repository](https://github.com/faosorios/india). First install the [devtools](https://devtools.r-lib.org/) package.
 ```r
 install.packages("devtools")
 ```
