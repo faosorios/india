@@ -1,0 +1,25 @@
+## required package
+import(fastmatrix)
+import(L1pack)
+
+## from "stats" package:
+importFrom("stats",
+           cooks.distance, deviance, hatvalues, lm.influence, model.matrix,
+           model.response, residuals)
+
+## Our exports:
+export(cooks.distance.ridge, leverages, logLik.displacement, relative.condition)
+
+## Register S3 methods
+S3method(cooks.distance, lad)
+S3method(cooks.distance, ols)
+S3method(cooks.distance, ridge)
+S3method(hatvalues, ols)
+S3method(hatvalues, ridge)
+S3method(leverages, lm)
+S3method(leverages, ols)
+S3method(leverages, ridge)
+S3method(logLik.displacement, lm)
+S3method(logLik.displacement, lad)
+S3method(logLik.displacement, ols)
+S3method(logLik.displacement, ridge)

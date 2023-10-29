@@ -1,0 +1,13 @@
+Type: Package
+Package: india
+Version: 0.1
+Title: Tools for Influence Diagnostics in Statistical Models
+Date: 2023-10-29
+Author: Felipe Osorio (<https://orcid.org/0000-0002-4675-5201>)
+Maintainer: Felipe Osorio <felipe.osorios@usm.cl>
+Description: Set of routines for influence diagnostics by using case-deletion in 
+    ordinary least squares, ridge estimation and LAD regression.
+Depends: R(>= 3.5.0), fastmatrix, L1pack
+Imports: stats
+License: GPL-3
+LazyLoad: yes
