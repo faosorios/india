@@ -4,7 +4,7 @@ Set of routines for influence diagnostics by using case-deletion in ordinary lea
 
 ## Features
 
-Initial release (Oct 29, 2023) of [india](https://github.com/faosorios/india) package have implemented the following influence measures for objects of class lad, ols and ridge, provided by L1pack and fastmatrix, respectively.
+Initial release (Oct 29, 2023) of [india](https://github.com/faosorios/india) package have implemented the following influence measures for objects of class lad, ols and ridge, provided by [L1pack](https://cran.r-project.org/package=L1pack) and [fastmatrix](https://faosorios.github.io/fastmatrix/), respectively.
 * Cook's distances.
 * Leverages (and hatvalues).
 * Likelihood displacement.
