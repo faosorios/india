@@ -11,7 +11,7 @@ Initial release (Oct 29, 2023) of [india](https://github.com/faosorios/india) pa
 * Relative change in the condition number.
 
 Our plan in the near future is the implementation of functions to handle:
-* More general models commonly used in Statistics.
+* General models commonly used in Statistics.
 * Procedures for assessing the local influence considering several perturbation schemes.
 
 ## Reference Manual
