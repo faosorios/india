@@ -1,5 +1,12 @@
 # Tools for influence diagnostics in statistical models
 
+[![CRAN status](http://www.r-pkg.org/badges/version/india)](https://cran.r-project.org/package=india)
+![CRAN/METACRAN](https://img.shields.io/cran/l/fastmatrix?color=informational)
+[![fastmatrix](https://img.shields.io/badge/Depends-fastmatrix-orange)](https://cran.r-project.org/package=fastmatrix)
+[![L1pack](https://img.shields.io/badge/Depends-L1pack-orange)](https://cran.r-project.org/package=L1pack)
+![GitHub last commit](https://img.shields.io/github/last-commit/faosorios/india)
+[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/india)](https://cran.r-project.org/package=india)
+
 Set of routines for influence diagnostics by using case-deletion in ordinary least squares, ridge estimation and LAD regression.
 
 ## Features
