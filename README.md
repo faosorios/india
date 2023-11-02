@@ -23,7 +23,7 @@ Our plan in the near future is the implementation of functions to handle:
 
 ## Reference Manual
 
-* [india.pdf](https://github.com/faosorios/india/blob/main/man/india_0.1.pdf)
+* [india.pdf](https://cran.r-project.org/web/packages/india/india.pdf)
 
 ## Resources
 
@@ -32,9 +32,19 @@ Binaries and sources for [india](https://github.com/faosorios/india) are availab
 * [india_0.1.tar.gz](https://github.com/faosorios/india/blob/main/src/india_0.1.tar.gz) - Package sources
 * [india_0.1.zip](https://github.com/faosorios/india/blob/main/binaries/india_0.1.zip) - Windows binaries
 
+Version 0.1 of [india](https://github.com/faosorios/india) can be found at the [CRAN package repository](https://cran.r-project.org/package=india):
+
+* [india_0.1.tar.gz](https://cran.r-project.org/src/contrib/india_0.1.tar.gz) - Package sources
+* [india_0.1.tgz](https://cran.r-project.org/bin/macosx/big-sur-x86_64/contrib/4.3/india_0.1.tgz) - MacOS binaries (R-release, x86_64)
+
 ## Installation instructions
 
-To install [india](https://github.com/faosorios/india) from its [GitHub repository](https://github.com/faosorios/india). First install the [devtools](https://devtools.r-lib.org/) package.
+To install [india](https://github.com/faosorios/india) **(version 0.1)** from CRAN, start R and enter:
+```r
+install.packages("india")
+```
+
+Or install it from its [GitHub repository](https://github.com/faosorios/india). First install the [devtools](https://devtools.r-lib.org/) package.
 ```r
 install.packages("devtools")
 ```
@@ -59,7 +69,7 @@ Please report any bugs/suggestions/improvements to [Felipe Osorio](http://fosori
 ### To cite the fastmatrix package in publications use:
 
 Osorio, F. (2023). india: Tools for influence diagnostics in statistical models. 
-R package version 0.1. URL: [https://github.com/faosorios/india](https://github.com/faosorios/india)
+R package version 0.1. URL: [https://cran.r-project.org/package=india](https://cran.r-project.org/package=india)
 
 ## About the Author
 
