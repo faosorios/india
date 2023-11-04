@@ -68,7 +68,7 @@ Please report any bugs/suggestions/improvements to [Felipe Osorio](http://fosori
 
 ### To cite the fastmatrix package in publications use:
 
-Osorio, F. (2023). india: Tools for influence diagnostics in statistical models. 
+Osorio, F. (2023). india: Influence diagnostics in statistical models. 
 R package version 0.1. URL: [https://cran.r-project.org/package=india](https://cran.r-project.org/package=india)
 
 ## About the Author
