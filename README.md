@@ -75,4 +75,3 @@ R package version 0.1. URL: [https://cran.r-project.org/package=india](https://c
 
 Felipe Osorio is an applied statistician and creator of several R packages
 * Webpage: [faosorios.github.io](https://faosorios.github.io/)
-* Email: [&#102;&#097;&#111;&#115;&#111;&#114;&#105;&#111;&#115;&#046;&#115;&#116;&#097;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;](&#102;&#097;&#111;&#115;&#111;&#114;&#105;&#111;&#115;&#046;&#115;&#116;&#097;&#116;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;)
