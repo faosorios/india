@@ -2,7 +2,7 @@
 \alias{relative.condition}
 \title{Relative change in the condition number}
 \usage{
-  relative.condition(x)
+relative.condition(x)
 }
 \arguments{
   \item{x}{ the model matrix \eqn{\bold{X}}.}
@@ -24,7 +24,7 @@
 
   Hadi, A.S. (1988).
   Diagnosing collinerity-influential observations.
-  \emph{Computational Statistics & Data Analysis} \bold{7}, 143-159 
+  \emph{Computational Statistics & Data Analysis} \bold{7}, 143-159. 
   \doi{10.1016/0167-9473(88)90089-8}.
 }
 \examples{
