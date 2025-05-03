@@ -1,0 +1,6 @@
+0.1-1 (May 03, 2025)
+  * Added routines to compute leverages, Cook's distances and likelihood displacement 
+    for the nonlinear regression model fitted by nls function.
+
+0.1 (Nov 02, 2023)
+  * Initial release of india on CRAN.
