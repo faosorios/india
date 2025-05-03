@@ -11,7 +11,7 @@ Set of routines for influence diagnostics by using case-deletion in ordinary lea
 
 ## Features
 
-Initial release (Oct 29, 2023) of [india](https://github.com/faosorios/india) package have implemented the following influence measures for objects of class lad, ols and ridge, provided by [L1pack](https://cran.r-project.org/package=L1pack) and [fastmatrix](https://faosorios.github.io/fastmatrix/), respectively.
+Lastest release (May 03, 2025) of [india](https://github.com/faosorios/india) package have implemented the following influence measures for objects of class nls, lad, ols and ridge, provided by [L1pack](https://cran.r-project.org/package=L1pack) and [fastmatrix](https://faosorios.github.io/fastmatrix/), respectively.
 * Cook's distances.
 * Leverages (and hatvalues).
 * Likelihood displacement.
@@ -29,8 +29,8 @@ Our plan in the near future is the implementation of functions to handle:
 
 Binaries and sources for [india](https://github.com/faosorios/india) are available here (these are local files):
 
-* [india_0.1.tar.gz](https://github.com/faosorios/india/blob/main/src/india_0.1.tar.gz) - Package sources
-* [india_0.1.zip](https://github.com/faosorios/india/blob/main/binaries/india_0.1.zip) - Windows binaries
+* [india_0.1-1.tar.gz](https://github.com/faosorios/india/blob/main/src/india_0.1-1.tar.gz) - Package sources
+* [india_0.1-1.zip](https://github.com/faosorios/india/blob/main/binaries/india_0.1-1.zip) - Windows binaries
 
 Version 0.1 of [india](https://github.com/faosorios/india) can be found at the [CRAN package repository](https://cran.r-project.org/package=india):
 
@@ -68,8 +68,8 @@ Please report any bugs/suggestions/improvements to [Felipe Osorio](http://fosori
 
 ### To cite the fastmatrix package in publications use:
 
-Osorio, F. (2023). india: Influence diagnostics in statistical models. 
-R package version 0.1. URL: [https://cran.r-project.org/package=india](https://cran.r-project.org/package=india)
+Osorio, F. (2025). india: Influence diagnostics in statistical models. 
+R package version 0.1-1. URL: [https://cran.r-project.org/package=india](https://cran.r-project.org/package=india)
 
 ## About the Author
 
