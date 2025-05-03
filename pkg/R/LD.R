@@ -1,4 +1,4 @@
-## ID: LD.R, last updated 2023-10-24, F.Osorio
+## ID: LD.R, last updated 2025-05-02, F.Osorio
 
 logLik.displacement <- function(model, ...) 
 UseMethod("logLik.displacement")
@@ -57,6 +57,25 @@ logLik.displacement.ols <- function(model, pars = "full", ...)
   LD
 }
 
+logLik.displacement.nls <- function(model, ...) 
+{ ## Linear approximation of likelihood displacement for nonlinear regression
+  ## Ross (1987), Can. J. Stat. 15, 91-103.
+  if (!inherits(model, "nls"))
+    stop("Use only with 'nls' objects")
+  obj <- model
+  lev <- leverages(obj)
+  res <- residuals(obj)
+  attr(res, "label") <- NULL
+  RSS <- deviance(obj)
+  n <- length(res)
+
+  b <- res^2 / (RSS * (1 - lev))
+  rel <- lev / (1 - lev) 
+  LD <- n * log(b * rel + 1)
+  names(LD) <- as.character(1:n)
+  LD
+}
+
 logLik.displacement.lad <- function(model, method = "quasi", pars = "full", ...) 
 { ## Likelihood displacement for LAD regression
   if (!inherits(model, "lad"))
@@ -70,17 +89,21 @@ logLik.displacement.lad <- function(model, method = "quasi", pars = "full", ...)
     quasi = {
       # Quasi-likelihood displacement for LAD regression
       # Sun & Wei (2004), Stat. Prob. Lett. 67, 97-110
+      if (obj$method != "BR")
+        stop("Use only with objects fitted by 'BR' option")
       SAD <- SAD.deleted(x, y)$SAD
       LD <- 2 * (SAD - obj$SAD)
     },
     BR = {
       # Likelihood displacement for LAD regression
       # Elian et al. (2000), Commun. Stat. Theory 29, 837-849
+      if (obj$method != "BR")
+        stop("Use only with objects fitted by 'BR' option")
       z <- SAD.deleted(x, y)
       switch(pars,
              full = {
               ratio <- z$scales / obj$scale
-              LD <- 2 * n * (log(ratio) + sqrt(2) * z$SAD / (n * z$scales) - 1)
+              LD <- 2 * n * (log(ratio) + sqrt(2) * (z$SAD / n) / z$scales - 1)
              },
              coef = {
               ratio <- z$SAD / obj$SAD
@@ -115,6 +138,8 @@ SAD.deleted <- function(x, y)
 
 logLik.displacement.ridge <- function(model, pars = "full", ...) 
 { ## Likelihood displacement for ridge regression
+  ## Ogueda & Osorio (2025), Stat. Papers 66, 85.
+  ## Suplementary Material, Appendix C
   if (!inherits(model, "ridge"))
     stop("Use only with 'ridge' objects")
   obj <- model

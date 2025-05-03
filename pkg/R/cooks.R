@@ -1,4 +1,26 @@
-## ID: cooks.R, last updated 2023-10-24, F.Osorio
+## ID: cooks.R, last updated 2025-05-02, F.Osorio
+
+cooks.distance.nls <- function(model, ...) 
+{ ## Linear approximation of Cook's distance for nonlinear regression
+  ## Ross (1987), Can. J. Stat. 15, 91-103.
+  if (!inherits(model, "nls"))
+    stop("Use only with 'nls' objects")
+  obj <- model
+  lev <- leverages(obj)
+  res <- residuals(obj)
+  attr(res, "label") <- NULL
+  RSS <- deviance(obj)
+  n <- length(res)
+  p <- length(coef(obj))
+  s2 <- RSS / (n - p)
+
+  # using deletion formulas
+  elim <- res / (1 - lev)
+  cooks <- elim^2 * lev / (p * s2)
+  
+  names(cooks) <- as.character(1:n)
+  cooks
+}
 
 cooks.distance.ols <- function(model, ...) 
 { ## Cook's distance for ordinary least squares
@@ -31,11 +53,14 @@ cooks.distance.lad <- function(model, ...)
   n <- obj$dims[1]
   p <- obj$dims[2]
 
+  if (obj$method != "BR")
+    stop("Use only with objects fitted by 'BR' option")
+
   # estimates using the full data
   SAD <- obj$SAD
   R <- obj$R
   omega <- SAD / (n - p) # proposal by Sun & Wei (2004)
-  
+
   cooks <- rep(0, n)
   # estimation removing the i-th observation 
   for (i in 1:n) {
@@ -44,6 +69,7 @@ cooks.distance.lad <- function(model, ...)
     z <- c(R %*% diff)
     cooks[i] <- (minkowski(z) / omega)^2
   }
+  
   names(cooks) <- as.character(1:n)
   cooks
 }
