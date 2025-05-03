@@ -71,6 +71,9 @@ Please report any bugs/suggestions/improvements to [Felipe Osorio](http://fosori
 Osorio, F. (2025). india: Influence diagnostics in statistical models. 
 R package version 0.1-1. URL: [https://cran.r-project.org/package=india](https://cran.r-project.org/package=india)
 
+## Papers using india
+- Ogueda, A., Osorio, F. (2025). Influence diagnostics for ridge regression using the Kullback-Leibler divergence. [Statistical Papers](https://doi.org/10.1007/s00362-025-01701-1) 66, 85.
+
 ## About the Author
 
 Felipe Osorio is an applied statistician and creator of several R packages
