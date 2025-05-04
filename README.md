@@ -7,7 +7,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/faosorios/india)
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/india)](https://cran.r-project.org/package=india)
 
-Set of routines for influence diagnostics by using case-deletion in ordinary least squares, ridge estimation and LAD regression.
+Set of routines for influence diagnostics by using case-deletion in ordinary least squares, nonlinear regression, ridge estimation and LAD regression.
 
 ## Features
 
