@@ -7,11 +7,11 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/faosorios/india)
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/india)](https://cran.r-project.org/package=india)
 
-Set of routines for influence diagnostics by using case-deletion in ordinary least squares, nonlinear regression, ridge estimation and LAD regression.
+Set of routines for influence diagnostics by using case-deletion in **ordinary least squares**, **nonlinear regression**, **ridge estimation** and **LAD regression**.
 
 ## Features
 
-Lastest release (May 03, 2025) of [india](https://github.com/faosorios/india) package have implemented the following influence measures for objects of class nls, lad, ols and ridge, provided by [L1pack](https://cran.r-project.org/package=L1pack) and [fastmatrix](https://faosorios.github.io/fastmatrix/), respectively.
+Lastest release (May 03, 2025) of [india](https://github.com/faosorios/india) package have implemented the following influence measures for objects of class **nls**, **lad**, **ols** and **ridge**, provided by [L1pack](https://cran.r-project.org/package=L1pack) and [fastmatrix](https://faosorios.github.io/fastmatrix/), respectively.
 * Cook's distances.
 * Leverages (and hatvalues).
 * Likelihood displacement.
@@ -32,14 +32,16 @@ Binaries and sources for [india](https://github.com/faosorios/india) are availab
 * [india_0.1-1.tar.gz](https://github.com/faosorios/india/blob/main/src/india_0.1-1.tar.gz) - Package sources
 * [india_0.1-1.zip](https://github.com/faosorios/india/blob/main/binaries/india_0.1-1.zip) - Windows binaries
 
-Version 0.1 of [india](https://github.com/faosorios/india) can be found at the [CRAN package repository](https://cran.r-project.org/package=india):
+Version 0.1-1 of [india](https://github.com/faosorios/india) can be found at the [CRAN package repository](https://cran.r-project.org/package=india):
 
-* [india_0.1.tar.gz](https://cran.r-project.org/src/contrib/india_0.1.tar.gz) - Package sources
-* [india_0.1.tgz](https://cran.r-project.org/bin/macosx/big-sur-x86_64/contrib/4.3/india_0.1.tgz) - MacOS binaries (R-release, x86_64)
+* [india_0.1-1.tar.gz](https://cran.r-project.org/src/contrib/india_0.1-1.tar.gz) - Package sources
+* [india_0.1-1.zip](https://cran.r-project.org/bin/windows/contrib/4.5/india_0.1-1.zip) - Windows binaries (R-release)
+* [india_0.1-1.tgz](https://cran.r-project.org/bin/macosx/big-sur-arm64/contrib/4.5/india_0.1-1.tgz) - MacOS binaries (R-release, arm64)
+* [india_0.1-1.tgz](https://cran.r-project.org/bin/macosx/big-sur-x86_64/contrib/4.5/india_0.1-1.tgz) - MacOS binaries (R-release, x86_64)
 
 ## Installation instructions
 
-To install [india](https://github.com/faosorios/india) **(version 0.1)** from CRAN, start R and enter:
+To install [india](https://github.com/faosorios/india) **(version 0.1-1)** from CRAN, start R and enter:
 ```r
 install.packages("india")
 ```
@@ -64,7 +66,7 @@ Next, you can load the package by using the command: `library(india)`
 
 ## Providing Feedback
 
-Please report any bugs/suggestions/improvements to [Felipe Osorio](http://fosorios.mat.utfsm.cl/). If you find these routines useful or not then please let me know. Also, acknowledgement of the use of the routines is appreciated.
+Please report any bugs/suggestions/improvements to [Felipe Osorio](https://faosorios.github.io/). If you find these routines useful or not then please let me know. Also, acknowledgement of the use of the routines is appreciated.
 
 ### To cite the fastmatrix package in publications use:
 
