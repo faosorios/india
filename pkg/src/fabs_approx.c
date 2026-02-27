@@ -1,4 +1,4 @@
-/* ID: fabs_approx.c, last updated 2025-05-01, F.Osorio */
+/* ID: fabs_approx.c, last updated 2025-05-18, F.Osorio */
 
 #include "base.h"
 
@@ -44,11 +44,12 @@ static double sech_sqr(double x)
 void resid_and_weights(double *dev, int *n, double *eta, double *fnc, double *resid, double *weights)
 { /* computation of |x|_eta, 'residuals' and 'weights' */
   int nobs = *n;
-  double mu = *eta;
+  double mu = *eta, res;
 
   for (int i = 0; i < nobs; i++) {
-    fnc[i]     = fabs_approx(dev[i], mu);
-    resid[i]   = fabs_1st(dev[i], mu);
-    weights[i] = fabs_2nd(dev[i], mu); /* proportional to 2nd derivative */
+    res        = dev[i];
+    fnc[i]     = fabs_approx(res, mu);
+    resid[i]   = fabs_1st(res, mu);
+    weights[i] = fabs_2nd(res, mu); /* proportional to 2nd derivative */
   }
 }
