@@ -9,8 +9,8 @@
 \usage{
 logLik.displacement(model, \dots)
 \method{logLik.displacement}{lm}(model, pars = "full", \dots)
-\method{logLik.displacement}{nls}(model, \dots)
 \method{logLik.displacement}{ols}(model, pars = "full", \dots)
+\method{logLik.displacement}{nls}(model, \dots)
 \method{logLik.displacement}{lad}(model, method = "quasi", pars = "full", \dots)
 \method{logLik.displacement}{ridge}(model, pars = "full", \dots)
 }
@@ -19,9 +19,9 @@ logLik.displacement(model, \dots)
     or \code{ridge}.}
   \item{pars}{ should be considered the whole vector of parameters (\code{pars = "full"}), 
     or only the vector of coefficients (\code{pars = "coef"}). This option is not used for \code{nls} objects.}
-  \item{method}{ only required for \code{'lad'} objects, options available are \code{"quasi"} 
-    and \code{"BR"} to obtain the likelihood displacement based on Sun and Wei (2004) and Elian 
-    et al. (2000) approaches, respectively.}
+  \item{method}{ only required for \code{'lad'} objects, options available are \code{"quasi"} and
+    \code{"BR"} and \code{"approx"} to obtain the likelihood displacement based on Sun and Wei (2004), 
+    Elian et al. (2000) approaches, respectively.}
   \item{\dots}{ further arguments passed to or from other methods.}
 }
 \description{

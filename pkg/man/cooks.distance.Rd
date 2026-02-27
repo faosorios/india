@@ -5,9 +5,9 @@
 \alias{cooks.distance.ridge}
 \title{Cook's distances}
 \usage{
-\method{cooks.distance}{lad}(model, \dots)
-\method{cooks.distance}{nls}(model, \dots)
 \method{cooks.distance}{ols}(model, \dots)
+\method{cooks.distance}{nls}(model, \dots)
+\method{cooks.distance}{lad}(model, \dots)
 \method{cooks.distance}{ridge}(model, type = "cov", \dots)
 }
 \arguments{
