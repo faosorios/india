@@ -1,4 +1,4 @@
-## ID: leverages.R, last updated 2025-05-01, F.Osorio
+## ID: leverages.R, last updated 2025-05-18, F.Osorio
 
 leverages <- function(model, ...) ## leverages (AKA "hatvalues")
 UseMethod("leverages")
@@ -26,7 +26,6 @@ leverages.ols <- function(model, ...)
   if (!inherits(model, "ols"))
     stop("Use only with 'ols' objects")
   obj <- model
-  y <- model.response(obj$model, "numeric")
   x <- model.matrix(obj$terms, obj$model, obj$contrast)
   n <- nrow(x)
   p <- ncol(x)
@@ -42,7 +41,6 @@ leverages.ridge <- function(model, ...)
   if (!inherits(model, "ridge"))
     stop("Use only with 'ridge' objects")
   obj <- model
-  y <- model.response(obj$model, "numeric")
   x <- model.matrix(obj$terms, obj$model, obj$contrast)
   n <- nrow(x)
   p <- ncol(x)

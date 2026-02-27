@@ -1,4 +1,4 @@
-## ID: cooks.R, last updated 2025-05-02, F.Osorio
+## ID: cooks.R, last updated 2026-01-23, F.Osorio
 
 cooks.distance.nls <- function(model, ...) 
 { ## Linear approximation of Cook's distance for nonlinear regression
@@ -44,7 +44,7 @@ cooks.distance.ols <- function(model, ...)
 
 cooks.distance.lad <- function(model, ...) 
 { ## Cook's distance for LAD regression
-  ## Sun & Wei (2004), Stat. Prob. Lett. 67, 97-110.
+  ## Sun & Wei (2004), Stat. Prob. Lett. 67, 97-110
   if (!inherits(model, "lad"))
     stop("Use only with 'lad' objects")
   obj <- model
@@ -57,11 +57,12 @@ cooks.distance.lad <- function(model, ...)
     stop("Use only with objects fitted by 'BR' option")
 
   # estimates using the full data
+  res <- obj$resid
   SAD <- obj$SAD
   R <- obj$R
-  omega <- SAD / (n - p) # proposal by Sun & Wei (2004)
 
   cooks <- rep(0, n)
+  omega <- SAD / (n - p) 
   # estimation removing the i-th observation 
   for (i in 1:n) {
     cf <- lad.fit.BR(x[-i,], y[-i])$coef

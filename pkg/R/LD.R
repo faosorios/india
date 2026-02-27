@@ -1,4 +1,4 @@
-## ID: LD.R, last updated 2025-05-02, F.Osorio
+## ID: LD.R, last updated 2025-05-18, F.Osorio
 
 logLik.displacement <- function(model, ...) 
 UseMethod("logLik.displacement")
