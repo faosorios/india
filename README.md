@@ -9,39 +9,36 @@
 
 Set of routines for influence diagnostics by using case-deletion in **ordinary least squares**, **nonlinear regression**, **ridge estimation** and **LAD regression**.
 
+## Resources
+
+Version 0.1-2 of [india](https://github.com/faosorios/india) can be found at the [CRAN package repository](https://cran.r-project.org/package=india):
+
+* [india_0.1-2.tar.gz](https://cran.r-project.org/src/contrib/india_0.1-2.tar.gz) - Package sources
+* [india_0.1-2.zip](https://cran.r-project.org/bin/windows/contrib/4.5/india_0.1-2.zip) - Windows binaries (R-release)
+* [india_0.1-2.tgz](https://cran.r-project.org/bin/macosx/big-sur-arm64/contrib/4.5/india_0.1-2.tgz) - MacOS binaries (R-release, arm64)
+* [india_0.1-2.tgz](https://cran.r-project.org/bin/macosx/big-sur-x86_64/contrib/4.5/india_0.1-2.tgz) - MacOS binaries (R-release, x86_64)
+
+## Reference Manual
+
+* [PDF manual](https://cran.r-project.org/web/packages/india/india.pdf) | [HTML manual](https://cran.r-project.org/web/packages/india/refman/india.html)
+
 ## Features
 
-Lastest release (May 03, 2025) of [india](https://github.com/faosorios/india) package have implemented the following influence measures for objects of class **nls**, **lad**, **ols** and **ridge**, provided by [L1pack](https://cran.r-project.org/package=L1pack) and [fastmatrix](https://faosorios.github.io/fastmatrix/), respectively.
+Lastest release (May 03, 2025) of [india](https://github.com/faosorios/india) package have implemented the following influence measures for objects of class **lm**, **nls**, **lad**, **ols** and **ridge**, provided by **stats**, [L1pack](https://cran.r-project.org/package=L1pack) and [fastmatrix](https://faosorios.github.io/fastmatrix/), respectively.
 * Cook's distances.
-* Leverages (and hatvalues).
+* Leverages (or hatvalues).
 * Likelihood displacement.
+* QQ-plot with simulated envelope for residuals.
+* Randomized quantile residuals.
 * Relative change in the condition number.
 
 Our plan in the near future is the implementation of functions to handle:
 * General models commonly used in Statistics.
 * Procedures for assessing the local influence considering several perturbation schemes.
 
-## Reference Manual
-
-* [india.pdf](https://cran.r-project.org/web/packages/india/india.pdf)
-
-## Resources
-
-Binaries and sources for [india](https://github.com/faosorios/india) are available here (these are local files):
-
-* [india_0.1-1.tar.gz](https://github.com/faosorios/india/blob/main/src/india_0.1-1.tar.gz) - Package sources
-* [india_0.1-1.zip](https://github.com/faosorios/india/blob/main/binaries/india_0.1-1.zip) - Windows binaries
-
-Version 0.1-1 of [india](https://github.com/faosorios/india) can be found at the [CRAN package repository](https://cran.r-project.org/package=india):
-
-* [india_0.1-1.tar.gz](https://cran.r-project.org/src/contrib/india_0.1-1.tar.gz) - Package sources
-* [india_0.1-1.zip](https://cran.r-project.org/bin/windows/contrib/4.5/india_0.1-1.zip) - Windows binaries (R-release)
-* [india_0.1-1.tgz](https://cran.r-project.org/bin/macosx/big-sur-arm64/contrib/4.5/india_0.1-1.tgz) - MacOS binaries (R-release, arm64)
-* [india_0.1-1.tgz](https://cran.r-project.org/bin/macosx/big-sur-x86_64/contrib/4.5/india_0.1-1.tgz) - MacOS binaries (R-release, x86_64)
-
 ## Installation instructions
 
-To install [india](https://github.com/faosorios/india) **(version 0.1-1)** from CRAN, start R and enter:
+To install [india](https://github.com/faosorios/india) **(version 0.1-2)** from CRAN, start R and enter:
 ```r
 install.packages("india")
 ```
@@ -69,9 +66,26 @@ Next, you can load the package by using the command: `library(india)`
 Please report any bugs/suggestions/improvements to [Felipe Osorio](https://faosorios.github.io/). If you find these routines useful or not then please let me know. Also, acknowledgement of the use of the routines is appreciated.
 
 ### To cite the fastmatrix package in publications use:
+``` r
+citation("india")
 
-Osorio, F. (2025). india: Influence diagnostics in statistical models. 
-R package version 0.1-1. URL: [https://cran.r-project.org/package=india](https://cran.r-project.org/package=india)
+To cite india in publications use:
+
+  Osorio, F. (2026). india: Influence Diagnostics in Statistical
+  Models. R package version 0.1-2. URL:
+  https://github.com/faosorios/india
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {india: Influence Diagnostics in Statistical Models},
+    author = {F. Osorio},
+    year = {2026},
+    note = {R package version 0.1-2},
+    url = {https://github.com/faosorios/india},
+  }
+
+```
 
 ## Papers using india
 - Ogueda, A., Osorio, F. (2025). Influence diagnostics for ridge regression using the Kullback-Leibler divergence. [Statistical Papers](https://doi.org/10.1007/s00362-025-01701-1) 66, 85.
