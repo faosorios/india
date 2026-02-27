@@ -1,8 +1,8 @@
 Package: india
 Type: Package
 Title: Influence Diagnostics in Statistical Models
-Version: 0.1-1
-Date: 2025-05-03
+Version: 0.1-2
+Date: 2026-02-18
 Authors@R: person("Felipe", "Osorio", email = "faosorios.stat@gmail.com",
     role = c("aut", "cre"), comment = c(ORCID = "0000-0002-4675-5201"))
 Maintainer: Felipe Osorio <faosorios.stat@gmail.com>

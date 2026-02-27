@@ -1,3 +1,9 @@
+0.1-2 (Feb 18, 2026)
+  * Added routines to compute randomized quantile residuals for linear regression, 
+    ordinary least squares, lad regression, nonlinear least squares and ridge regression.
+  * Routines for the computation of QQ-plots with simulated envelope were included.
+  * Added the aircraft dataset introduced in Rousseeuw and Leroy (1987, pp. 154).
+
 0.1-1 (May 03, 2025)
   * Added routines to compute leverages, Cook's distances and likelihood displacement 
     for the nonlinear regression model fitted by nls function.

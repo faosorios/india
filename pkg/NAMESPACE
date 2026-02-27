@@ -6,17 +6,32 @@ import(L1pack)
 
 ## from "stats" package:
 importFrom("stats",
-           coef, cooks.distance, deviance, hatvalues, lm.influence, model.matrix,
-           model.response, residuals)
+           as.formula, asOneSidedFormula, coef, cooks.distance, deviance, fitted, formula, 
+           hatvalues, lm.fit, lm.influence, model.matrix, model.response, nls, pnorm, qnorm, 
+           qqnorm, quantile, resid, residuals, rnorm, rstandard, rstudent)
+
+## from "graphics" package:
+importFrom("graphics", 
+           par)
+
+## from "utils" package:
+importFrom("utils", 
+           relist, setTxtProgressBar, txtProgressBar)
 
 ## Our exports:
-export(cooks.distance.ridge, leverages, logLik.displacement, relative.condition)
+export(cooks.distance.ridge, envelope, leverages, logLik.displacement, relative.condition, 
+       rquantile)
 
 ## Register S3 methods
 S3method(cooks.distance, lad)
 S3method(cooks.distance, nls)
 S3method(cooks.distance, ols)
 S3method(cooks.distance, ridge)
+S3method(envelope, lad)
+S3method(envelope, lm)
+S3method(envelope, nls)
+S3method(envelope, ols)
+S3method(envelope, ridge)
 S3method(hatvalues, nls)
 S3method(hatvalues, ols)
 S3method(hatvalues, ridge)
@@ -24,8 +39,13 @@ S3method(leverages, lm)
 S3method(leverages, nls)
 S3method(leverages, ols)
 S3method(leverages, ridge)
-S3method(logLik.displacement, lm)
 S3method(logLik.displacement, lad)
+S3method(logLik.displacement, lm)
 S3method(logLik.displacement, nls)
 S3method(logLik.displacement, ols)
 S3method(logLik.displacement, ridge)
+S3method(rquantile, lad)
+S3method(rquantile, lm)
+S3method(rquantile, nls)
+S3method(rquantile, ols)
+S3method(rquantile, ridge)
