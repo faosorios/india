@@ -72,7 +72,7 @@ citation("india")
 To cite india in publications use:
 
   Osorio, F. (2026). india: Influence Diagnostics in Statistical
-  Models. R package version 0.1-2. URL:
+  Models. R package version 0.1-4. URL:
   https://github.com/faosorios/india
 
 A BibTeX entry for LaTeX users is
@@ -81,7 +81,7 @@ A BibTeX entry for LaTeX users is
     title = {india: Influence Diagnostics in Statistical Models},
     author = {F. Osorio},
     year = {2026},
-    note = {R package version 0.1-2},
+    note = {R package version 0.1-4},
     url = {https://github.com/faosorios/india},
   }
 
