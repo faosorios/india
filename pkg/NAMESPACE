@@ -6,7 +6,7 @@ import(L1pack)
 
 ## from "stats" package:
 importFrom("stats",
-           as.formula, asOneSidedFormula, coef, cooks.distance, deviance, fitted, formula, 
+           as.formula, asOneSidedFormula, coef, cooks.distance, deriv, deviance, fitted, formula, 
            hatvalues, lm.fit, lm.influence, model.matrix, model.response, nls, pnorm, qnorm, 
            qqnorm, quantile, resid, residuals, rnorm, rstandard, rstudent)
 
@@ -32,7 +32,6 @@ S3method(envelope, lm)
 S3method(envelope, nls)
 S3method(envelope, ols)
 S3method(envelope, ridge)
-S3method(hatvalues, nls)
 S3method(hatvalues, ols)
 S3method(hatvalues, ridge)
 S3method(leverages, lm)

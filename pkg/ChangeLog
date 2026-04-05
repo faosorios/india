@@ -1,3 +1,10 @@
+0.1-4 (Apr 05, 2026)
+  * Starting from version 4.6.0 of R, the function hatvalues.nls() will be included in 
+    the "stats" package; therefore, it has been removed from india. Please use function
+    leverages.nls() instead.
+  * Now, function leverages.nls includes the options "tangent" and "jacobian" to compute
+    tangent plane leverage (Ross, 1987) and Jacobian leverage (St. Laurent and Cook, 1992). 
+
 0.1-2 (Feb 18, 2026)
   * Added routines to compute randomized quantile residuals for linear regression, 
     ordinary least squares, lad regression, nonlinear least squares and ridge regression.
