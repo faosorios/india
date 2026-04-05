@@ -1,10 +1,4 @@
-## ID: hatvalues.R, last updated 2025-05-01, F.Osorio
-
-hatvalues.nls <- function(model, ...)
-{ ## leverages for nonlinear regression
-  hats <- leverages.nls(model)
-  hats
-}
+## ID: hatvalues.R, last updated 2026-04-04, F.Osorio
 
 hatvalues.ols <- function(model, ...)
 { ## leverages for ordinary least squares
