@@ -88,6 +88,7 @@ A BibTeX entry for LaTeX users is
 ```
 
 ## Papers using india
+- Osorio, F. (2026). On the mean-shift outlier model for LAD regression. [Journal of Statistical Computation and Simulation](https://doi.org/10.1080/00949655.2026.2716387), doi: [10.1080/00949655.2026.2716387](https://doi.org/10.1080/00949655.2026.2716387)
 - Ogueda, A., Osorio, F. (2025). Influence diagnostics for ridge regression using the Kullback-Leibler divergence. [Statistical Papers](https://doi.org/10.1007/s00362-025-01701-1) 66, 85.
 
 ## About the Author
