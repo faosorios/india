@@ -1,4 +1,4 @@
-/* ID: base.h, last updated 2024-06-06, F.Osorio */
+/* ID: base.h, last updated 2026-09-12, F.Osorio */
 
 #ifndef INDIA_BASE_H
 #define INDIA_BASE_H
@@ -25,5 +25,10 @@
 #define SQR(x)      R_pow_di(x, 2)
 #define DOUBLE_EPS  DBL_EPSILON
 #define repeat      for(;;)
+
+/* to compute leverages using linear programming */
+#define LP_TOL          1.0e-10
+#define LP_TOL_BOUND    1.0e-8
+#define LP_MAXIT        10000
 
 #endif /* INDIA_BASE_H */
