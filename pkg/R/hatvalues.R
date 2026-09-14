@@ -1,4 +1,10 @@
-## ID: hatvalues.R, last updated 2026-04-04, F.Osorio
+## ID: hatvalues.R, last updated 2026-09-13, F.Osorio
+
+hatvalues.lad <- function(model, ...)
+{ ## leverages for lad regression
+  hats <- leverages.lad(model)
+  hats
+}
 
 hatvalues.ols <- function(model, ...)
 { ## leverages for ordinary least squares

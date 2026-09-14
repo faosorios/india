@@ -1,4 +1,4 @@
-## ID: cooks.R, last updated 2026-01-23, F.Osorio
+## ID: cooks.R, last updated 2026-09-12, F.Osorio
 
 cooks.distance.nls <- function(model, ...) 
 { ## Linear approximation of Cook's distance for nonlinear regression
@@ -42,7 +42,7 @@ cooks.distance.ols <- function(model, ...)
   cooks
 }
 
-cooks.distance.lad <- function(model, ...) 
+cooks.distance.lad <- function(model, type = "L2", ...) 
 { ## Cook's distance for LAD regression
   ## Sun & Wei (2004), Stat. Prob. Lett. 67, 97-110
   if (!inherits(model, "lad"))
@@ -61,16 +61,29 @@ cooks.distance.lad <- function(model, ...)
   SAD <- obj$SAD
   R <- obj$R
 
-  cooks <- rep(0, n)
-  omega <- SAD / (n - p) 
+  pick <- switch(type, "L1" = 0, "L2" = 1,
+                 stop(paste("unimplemented option:", type)))
+  CD1 <- CD2 <- rep(0, n)
+  omega <- SAD / (n - p)
+
   # estimation removing the i-th observation 
   for (i in 1:n) {
     cf <- lad.fit.BR(x[-i,], y[-i])$coef
     diff <- obj$coef - cf
-    z <- c(R %*% diff)
-    cooks[i] <- (minkowski(z) / omega)^2
+    if (pick) {
+      z <- c(R %*% diff)
+      CD2[i] <- (minkowski(z) / omega)^2
+    } else {
+      z <- c(x %*% diff)
+      CD1[i] <- minkowski(z, p = 1) / omega
+    }
   }
-  
+
+  # output
+  if (pick)
+    cooks <- CD2
+  else
+    cooks <- CD1
   names(cooks) <- as.character(1:n)
   cooks
 }

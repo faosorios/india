@@ -1,4 +1,4 @@
-## ID: leverages.R, last updated 2026-04-04, F.Osorio
+## ID: leverages.R, last updated 2026-09-13, F.Osorio
 
 leverages <- function(model, ...) ## leverages (AKA "hatvalues")
 UseMethod("leverages")
@@ -47,6 +47,32 @@ leverages.nls <- function(model, type = "tangent", ...)
          },
          stop(paste("unimplemented option:", type))
   )
+  names(levs) <- as.character(1:n)
+  levs
+}
+
+leverages.lad <- function(model, ...) 
+{ ## leverages constants for individual obsservations for LAD regression
+  ## Flores (2015), TEST 24, 796-812.
+  if (!inherits(model, "lad"))
+    stop("Use only with 'lad' objects")
+  obj <- model
+  x <- model.matrix(obj$terms, obj$model, obj$contrast)
+  storage.mode(x) <- "double"
+  n <- obj$dims[1]
+  p <- obj$dims[2]
+
+  # computing leverages constants
+  z <- .C("leverages_lad",
+          x = x,
+          n = as.integer(n),
+          p = as.integer(p),
+          levs = double(n),
+          info = as.integer(0))[c("levs","info")]
+  if (z$info)
+    stop(paste("leverages.lad gave error code", z$info))
+  
+  levs <- z$levs
   names(levs) <- as.character(1:n)
   levs
 }

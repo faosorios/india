@@ -1,4 +1,4 @@
-## ID: envelope.R, last updated 2026-02-03, F.Osorio
+## ID: envelope.R, last updated 2026-09-10, F.Osorio
 
 envelope <- function(object, ...) UseMethod("envelope")
 
@@ -160,6 +160,8 @@ envelope.ols <- function(object, reps = 50, conf = 0.95, type = c("quantile", "s
 
 envelope.lad <- function(object, reps = 50, conf = 0.95, plot.it = TRUE, ...)
 { ## simulated envelope for LAD regression
+  ## Osorio (2026), J. Stat. Comput. Simul. 
+  ## doi: 10.1080/00949655.2026.2716387
   envel <- function(n, x, mu, dispersion, reps, conf) {
     conf <- 1 - conf
     # initialize progress bar
