@@ -13,10 +13,10 @@ Set of routines for influence diagnostics by using case-deletion in **ordinary l
 
 Version 0.1-5 of [india](https://github.com/faosorios/india) can be found at the [CRAN package repository](https://cran.r-project.org/package=india):
 
-* [india_0.1-4.tar.gz](https://cran.r-project.org/src/contrib/india_0.1-4.tar.gz) - Package sources
+* [india_0.1-5.tar.gz](https://cran.r-project.org/src/contrib/india_0.1-5.tar.gz) - Package sources
 * [india_0.1-4.zip](https://cran.r-project.org/bin/windows/contrib/4.5/india_0.1-4.zip) - Windows binaries (R-release)
 * [india_0.1-4.tgz](https://cran.r-project.org/bin/macosx/big-sur-arm64/contrib/4.5/india_0.1-4.tgz) - MacOS binaries (R-release, arm64)
-* [india_0.1-4.tgz](https://cran.r-project.org/bin/macosx/big-sur-x86_64/contrib/4.5/india_0.1-4.tgz) - MacOS binaries (R-release, x86_64)
+* [india_0.1-5.tgz](https://cran.r-project.org/bin/macosx/big-sur-x86_64/contrib/4.6/india_0.1-5.tgz) - MacOS binaries (R-release, x86_64)
 
 ## Reference Manual
 
@@ -38,7 +38,7 @@ Our plan in the near future is the implementation of functions to handle:
 
 ## Installation instructions
 
-To install [india](https://github.com/faosorios/india) **(version 0.1-4)** from CRAN, start R and enter:
+To install [india](https://github.com/faosorios/india) **(version 0.1-5)** from CRAN, start R and enter:
 ```r
 install.packages("india")
 ```
