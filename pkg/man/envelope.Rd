@@ -50,7 +50,8 @@ envelope(object, \dots)
 
   Osorio, F. (2026).
   On the mean-shift outlier model for LAD regression.
-  Working paper.
+  Journal of Statistical Computation and Simulation.
+  \doi{10.1080/00949655.2026.2716387}
 
   Venables, W.N., Ripley, B.D. (1999).
   \emph{Modern Applied Statistics with S-PLUS, 3rd Ed}.

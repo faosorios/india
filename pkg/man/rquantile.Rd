@@ -34,7 +34,8 @@ rquantile(model, \dots)
 
   Osorio, F. (2026).
   On the mean-shift outlier model for LAD regression.
-  Working paper.
+  Journal of Statistical Computation and Simulation.
+  \doi{10.1080/00949655.2026.2716387}
 }
 \examples{
 # quantile residuals for linear regression

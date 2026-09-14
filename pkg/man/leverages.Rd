@@ -1,7 +1,9 @@
 \name{leverages}
 \alias{leverages}
+\alias{hatvalues.lad}
 \alias{hatvalues.ols}
 \alias{hatvalues.ridge}
+\alias{leverages.lad}
 \alias{leverages.lm}
 \alias{leverages.nls}
 \alias{leverages.ols}
@@ -11,14 +13,16 @@
 leverages(model, \dots)
 \method{leverages}{lm}(model, infl = lm.influence(model, do.coef = FALSE), \dots)
 \method{leverages}{nls}(model, type = "tangent", \dots)
+\method{leverages}{lad}(model, \dots)
 \method{leverages}{ols}(model, \dots)
 \method{leverages}{ridge}(model, \dots)
 
+\method{hatvalues}{lad}(model, \dots)
 \method{hatvalues}{ols}(model, \dots)
 \method{hatvalues}{ridge}(model, \dots)
 }
 \arguments{
-  \item{model}{ an \R object, returned by \code{\link{lm}}, \code{\link{nls}}, \code{ols} or \code{ridge}.}
+  \item{model}{ an \R object, returned by \code{\link{lm}}, \code{\link{nls}}, \code{lad}, \code{ols} or \code{ridge}.}
   \item{infl}{ influence structure as returned by \code{\link{lm.influence}}.}
   \item{type}{ only required for \code{'nls'} objects, options available are \code{"tangent"} and  
     \code{"jacobian"} to obtain the tangent plane leverage (Ross, 1987) and Jacobian leverage matrix
@@ -49,6 +53,27 @@ leverages(model, \dots)
   where \eqn{\hat{\bold{r}} = \bold{Y} - \bold{f}(\hat{\bold{\beta}})} is the vector of residuals, \eqn{\hat{\bold{W}}}
   is the \eqn{n\times p\times p} three-dimensional array constructed by \emph{n} Hessian matrices of order \eqn{p\times p}
   of \eqn{\bold{f}(\bold{\beta})} and \eqn{[][]} denotes array multiplication as defined by Bates and Watts (1980).
+
+  For LAD regression, this function computes the leverage constants for individual observations introduced 
+  by Flores (2015). These constants provide a measure of the relative weight of an observation in the design 
+  matrix for LAD regression. Let \eqn{\bold{X}} be an \eqn{n \times p} model matrix and let \eqn{\bold{x}_i^T} 
+  denote the \eqn{i}th row of \eqn{\bold{X}}. The leverage constant for observation \eqn{i} is defined by
+  \deqn{
+    \gamma_i = \max_{\substack{g \in {\mathbb R}^p\\ 
+    \|g\|_2=1}} \frac{|\bold{x}_i^T\bold{g}|}{\sum_{j=1}^n |\bold{x}_j^T\bold{g}|}, \qquad i=1,\ldots,n.
+  }
+  The leverage constants measure the relative weight of individual observations in the design configuration. 
+  They correspond to the case \eqn{k=1} of the leverage constants \eqn{c_k(\bold{X})} defined by Flores (2015). 
+  In particular,
+  \deqn{
+    c_1(\bold{X}) = 1-\max_{1\leq i\leq n}\gamma_i.
+  }
+  By homogeneity, the computation of \eqn{\gamma_i} can equivalently be expressed as the optimization problem
+  \deqn{
+    \gamma_i = \max_{g\in{\mathbb R}^p}
+    \left\{\bold{x}_i^T\bold{g}:\|\bold{Xg}\|_1 \leq 1\right\}.
+  }
+  The absolute-value constraint can be formulated as a linear programming problem.
 }
 \note{
   This function never creates the prediction matrix and only obtains its diagonal elements using
@@ -59,6 +84,13 @@ leverages(model, \dots)
   \bold{Warning:} Starting from version 4.6.0 of R, the function \code{hatvalues.nls()} will be included 
   in the \bold{stats} package; therefore, it has been removed from \bold{india}. Please use function
   \code{leverages.nls()} instead.
+
+  For LAD regression, the function \code{leverages.lad} solves one linear programming problem for each observation. 
+  The feasible region is the same for all observations, while the objective function changes with \eqn{i}. The 
+  implementation therefore uses the optimal basis obtained for one observation as a warm start for the optimization 
+  corresponding to the next observation. The resulting values satisfy, up to numerical precision, \eqn{0\leq\gamma_i\leq 1}. 
+  A large value of \eqn{\gamma_i} indicates that observation \eqn{i} has large leverage according to the definition 
+  of Flores (2015).
 }
 \references{
   Bates, D.W., Watts, D.G. (1980). 
@@ -73,6 +105,11 @@ leverages(model, \dots)
   Cook, R.D., Weisberg, S. (1982).
   \emph{Residuals and Influence in Regression}.
   Chapman and Hall, London.
+
+  Flores, S. (2015).
+  Sharp non-asymptotic performance bounds for \eqn{\ell_1} and Huber robust regression estimators.
+  \emph{TEST} \bold{24}, 796-812.
+  \doi{10.1007/s11749-015-0435-5}
 
   Ross, W.H. (1987).
   The geometry of case deletion and the assessment of influence in nonlinear regression.
@@ -97,20 +134,38 @@ leverages(model, \dots)
 \examples{
 # Leverages for linear regression
 fm <- ols(stack.loss ~ ., data = stackloss)
-lev <- leverages(fm)
-cutoff <- 2 * mean(lev)
-plot(lev, ylab = "Leverages", ylim = c(0,0.45))
+levs <- leverages(fm)
+cutoff <- 2 * mean(levs)
+plot(levs, ylab = "Leverages", ylim = c(0,0.45))
 abline(h = cutoff, lty = 2, lwd = 2, col = "red")
-text(17, lev[17], label = as.character(17), pos = 3)
+text(17, levs[17], label = as.character(17), pos = 3)
+
+# Leverage constants for LAD regression
+# first panel of Figure 4 from Flores (2015) 
+fm <- lad(stack.loss ~ ., data = stackloss, y = TRUE)
+levs <- leverages(fm)
+obs <- c(1,2,3,4,17,21)
+plot(levs, fm$y, xlab = "Leverages", ylab = "stackloss", xlim = c(0.06,0.2), ylim = c(5,45))
+text(levs[obs], fm$y[obs], label = as.character(obs), pos = 3)
+
+# first panel of Figure 2 from Flores (2015) 
+data(aircraft)
+fm <- lad(cost ~ ., data = aircraft, y = TRUE)
+levs <- leverages(fm)
+obs <- c(14,22)
+plot(levs, fm$y, xlab = "Leverages", ylab = "cost", xlim = c(0.05,0.47), ylim = c(0, 115))
+text(levs[obs], fm$y[obs], label = as.character(obs), pos = 3)
+plot(levs, ylab = "Leverages", ylim = c(0.06,0.48))
+text(14, levs[14], label = as.character(14), pos = 3)
 
 # Leverages for ridge regression
 data(portland)
 fm <- ridge(y ~ ., data = portland)
-lev <- leverages(fm)
-cutoff <- 2 * mean(lev)
-plot(lev, ylab = "Leverages", ylim = c(0,0.7))
+levs <- leverages(fm)
+cutoff <- 2 * mean(levs)
+plot(levs, ylab = "Leverages", ylim = c(0,0.7))
 abline(h = cutoff, lty = 2, lwd = 2, col = "red")
-text(10, lev[10], label = as.character(10), pos = 3)
+text(10, levs[10], label = as.character(10), pos = 3)
 
 # Leverages for nonlinear regression 
 data(skeena)

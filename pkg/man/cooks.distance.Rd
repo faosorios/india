@@ -7,14 +7,18 @@
 \usage{
 \method{cooks.distance}{ols}(model, \dots)
 \method{cooks.distance}{nls}(model, \dots)
-\method{cooks.distance}{lad}(model, \dots)
+\method{cooks.distance}{lad}(model, type = "L2", \dots)
 \method{cooks.distance}{ridge}(model, type = "cov", \dots)
 }
 \arguments{
   \item{model}{ an \R object, returned by \code{ols}, \code{\link{nls}}, \code{lad} or \code{ridge}.}
-  \item{type}{ only required for \code{'ridge'} objects, options available are \code{"1st"}, 
-    \code{"cov"} and \code{"both"} to obtain the Cook's distance based on Equation (2.5), (2.6) or 
-    both by Walker and Birch (1988), respectively.}
+  \item{type}{ For \code{'lad'} objects, specifies the norm used for the influence measure. \code{"L2"} 
+  computes the Cook's distance based on the Euclidean norm, whereas \code{"L1"} computes the absolute-norm
+  fitted-value measure \eqn{FD_{1i}} proposed in Equation (4) of Sun and Wei (2004).
+
+  For \code{'ridge'} objects, the available options are \code{"1st"}, \code{"cov"} and \code{"both"}, 
+  corresponding to the Cook's distances given by Equations (2.5), (2.6), or both, respectively, in
+  Walker and Birch (1988).}
   \item{\dots}{ further arguments passed to or from other methods.}
 }
 \description{
@@ -32,6 +36,18 @@
 
   The Cook's distance for nonlinear regression is based on linear approximation, which may be 
   inappropriate for expectation surfaces markedly nonplanar.
+
+  For \code{lad} objects with \code{type = "L1"}, the returned measure is
+  \deqn{
+    FD_i = \frac{1}{\hat{\omega}}\big\|\bold{X}\hat{\boldsymbol{\beta}} 
+    - \bold{X}\hat{\boldsymbol{\beta}}_{(i)}\big\|_1 = \frac{1}{\hat{\omega}}
+    \sum_{j=1}^n\big|\bold{x}_j^T\hat{\boldsymbol{\beta}} - \bold{x}_j^T
+    \hat{\boldsymbol{\beta}}_{(i)}\big|,
+  }
+  where
+  \deqn{
+    \hat{\omega} = \frac{1}{n-p}\sum_{j=1}^n|y_j - \bold{x}_j^T\hat{\boldsymbol{\beta}}|.
+  }
 }
 \references{
   Cook, R.D., Weisberg, S. (1980).
@@ -67,9 +83,14 @@ text(21, CD[21], label = as.character(21), pos = 3)
 
 # Cook's distances for LAD regression
 fm <- lad(stack.loss ~ ., data = stackloss)
-CD <- cooks.distance(fm)
+CD <- cooks.distance(fm, type = "L2")
 plot(CD, ylab = "Cook's distances", ylim = c(0,0.4))
 text(17, CD[17], label = as.character(17), pos = 3)
+
+# Fitted-value measure, L1-norm for LAD regression
+FD <- cooks.distance(fm, type = "L1")
+plot(FD, ylab = "Fitted-value distances", ylim = c(0,2.3))
+text(17, FD[17], label = as.character(17), pos = 3)
 
 # Cook's distances for ridge regression
 data(portland)
