@@ -11,7 +11,7 @@ Set of routines for influence diagnostics by using case-deletion in **ordinary l
 
 ## Resources
 
-Version 0.1-4 of [india](https://github.com/faosorios/india) can be found at the [CRAN package repository](https://cran.r-project.org/package=india):
+Version 0.1-5 of [india](https://github.com/faosorios/india) can be found at the [CRAN package repository](https://cran.r-project.org/package=india):
 
 * [india_0.1-4.tar.gz](https://cran.r-project.org/src/contrib/india_0.1-4.tar.gz) - Package sources
 * [india_0.1-4.zip](https://cran.r-project.org/bin/windows/contrib/4.5/india_0.1-4.zip) - Windows binaries (R-release)
@@ -24,7 +24,7 @@ Version 0.1-4 of [india](https://github.com/faosorios/india) can be found at the
 
 ## Features
 
-Lastest release (Apr 05, 2026) of [india](https://github.com/faosorios/india) package have implemented the following influence measures for objects of class **lm**, **nls**, **lad**, **ols** and **ridge**, provided by **stats**, [L1pack](https://cran.r-project.org/package=L1pack) and [fastmatrix](https://faosorios.github.io/fastmatrix/), respectively.
+Lastest release (Sep 14, 2026) of [india](https://github.com/faosorios/india) package have implemented the following influence measures for objects of class **lm**, **nls**, **lad**, **ols** and **ridge**, provided by **stats**, [L1pack](https://cran.r-project.org/package=L1pack) and [fastmatrix](https://faosorios.github.io/fastmatrix/), respectively.
 * Cook's distances.
 * Leverages (or hatvalues).
 * Likelihood displacement.
@@ -72,7 +72,7 @@ citation("india")
 To cite india in publications use:
 
   Osorio, F. (2026). india: Influence Diagnostics in Statistical
-  Models. R package version 0.1-4. URL:
+  Models. R package version 0.1-5. URL:
   https://github.com/faosorios/india
 
 A BibTeX entry for LaTeX users is
@@ -81,7 +81,7 @@ A BibTeX entry for LaTeX users is
     title = {india: Influence Diagnostics in Statistical Models},
     author = {F. Osorio},
     year = {2026},
-    note = {R package version 0.1-4},
+    note = {R package version 0.1-5},
     url = {https://github.com/faosorios/india},
   }
 
