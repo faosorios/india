@@ -1,3 +1,11 @@
+0.1-5 (Sep 14, 2026)
+  * Added a new method for computing Cook's distance for LAD regression, based on the 
+    fitted-value measure proposed by Sun and Wei (2004). Now, function cooks.distances() 
+    have the options "L1" and "L2" for 'lad' objects. 
+  * The routine leverages.lad() for computing leverage values in LAD regression has been 
+    included. This leverage constants are based on the definition proposed by Flores (2015), 
+    implemented through an equivalent linear programming formulation.
+
 0.1-4 (Apr 05, 2026)
   * Starting from version 4.6.0 of R, the function hatvalues.nls() will be included in 
     the "stats" package; therefore, it has been removed from india. Please use function
@@ -11,7 +19,7 @@
   * Routines for the computation of QQ-plots with simulated envelope were included.
   * Added the aircraft dataset introduced in Rousseeuw and Leroy (1987, pp. 154).
 
-0.1-1 (May 03, 2025)
+0.1-1 (May 04, 2025)
   * Added routines to compute leverages, Cook's distances and likelihood displacement 
     for the nonlinear regression model fitted by nls function.
 
