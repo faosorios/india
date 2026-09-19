@@ -88,7 +88,7 @@ A BibTeX entry for LaTeX users is
 ```
 
 ## Technical notes
-- Computing the leverage constants for LAD regression [PDF (285 Kb)](notes/LAD_leverage.pdf)
+- Computing the leverage constants for LAD regression [[PDF (285 Kb)]](notes/LAD_leverage.pdf)
 
 ## Papers using india
 - Osorio, F. (2026). On the mean-shift outlier model for LAD regression. [Journal of Statistical Computation and Simulation](https://doi.org/10.1080/00949655.2026.2716387), doi: [10.1080/00949655.2026.2716387](https://doi.org/10.1080/00949655.2026.2716387)
